@@ -1,0 +1,45 @@
+.chat-main
+  .chat-main__group-info
+    .chat-main__group-info__left-content
+      .chat-main__group-info__left-content__groups-name
+        test
+      .chat-main__group-info__left-content__members-name
+        member : masa
+    .chat-main__group-info__right-content
+      = link_to 'Edit', "#", class: "edit-btn"
+  .chat-main__message-list
+    .chat-main__message-list__margin
+      .chat-main__message-list__margin__top-content
+        .chat-main__message-list__margin__top-content__users-name
+          masa
+        .chat-main__message-list__margin__top-content__post-date
+          2019/11/20(web) 17:43:01
+      .chat-main__message-list__margin__second-content
+        おはよう
+
+    .chat-main__message-list__margin
+      .chat-main__message-list__margin__top-content
+        .chat-main__message-list__margin__top-content__users-name
+          masa
+        .chat-main__message-list__margin__top-content__post-date
+          2019/11/20(web) 17:43:01
+      .chat-main__message-list__margin__second-content
+        おはよう
+
+    .chat-main__message-list__margin
+      .chat-main__message-list__margin__top-content
+        .chat-main__message-list__margin__top-content__users-name
+          masa
+        .chat-main__message-list__margin__top-content__post-date
+          2019/11/20(web) 17:43:01
+      .chat-main__message-list__margin__second-content
+        おはよう
+
+  .chat-main__message-form
+    %form{class: "form-box"}
+      .chat-main__message-form__input-box
+        %input{type: "text", placeholder: "type a message", class: "input-message"}
+        %label{class: "image-box"}
+          = icon('fas', 'image')
+          %input{type: "file", class: "input-file"}
+      %input{type: "submit", value: "SEND", class: "send"}
