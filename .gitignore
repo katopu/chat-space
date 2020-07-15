@@ -30,3 +30,5 @@
 yarn-debug.log*
 .yarn-integrity
 public/uploads/*
+/app/views/.DS_Store
+/app/views/devise/.DS_Store
