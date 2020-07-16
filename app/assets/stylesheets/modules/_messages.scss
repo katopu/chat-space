@@ -60,16 +60,21 @@
 
     &__content{
       height: 91px;
-      color: white;
+
+      .link-style{
+        text-decoration: none;
+      }
 
       &__group-name{
         font-size: 15px;
         margin: 20px 20px 5px 20px;
+        color: white;
       }
 
       &__group-message{
         font-size: 11px;
         margin: 0px 20px 40px 20px;
+        color: white;
       }
     }
   }
@@ -176,7 +181,7 @@
       color: #999999;
     }
 
-   .image-box{
+    .image-box{
       display: flex;
       align-items: center;
       justify-content: end;
