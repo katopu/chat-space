@@ -1,45 +1,23 @@
 .chat-main
   .chat-main__group-info
     .chat-main__group-info__left-content
-      .chat-main__group-info__left-content__groups-name
-        test
-      .chat-main__group-info__left-content__members-name
-        member : masa
+      = link_to group_messages_path(@group) do
+        .chat-main__group-info__left-content__groups-name
+          = @group.name
+        .chat-main__group-info__left-content__members-name
+          - @group.users.each do |user|
+            = user.name
     .chat-main__group-info__right-content
-      = link_to 'Edit', "#", class: "edit-btn"
+      = link_to 'Edit', edit_group_path(@group), class: "edit-btn"
+
   .chat-main__message-list
-    .chat-main__message-list__margin
-      .chat-main__message-list__margin__top-content
-        .chat-main__message-list__margin__top-content__users-name
-          masa
-        .chat-main__message-list__margin__top-content__post-date
-          2019/11/20(web) 17:43:01
-      .chat-main__message-list__margin__second-content
-        おはよう
-
-    .chat-main__message-list__margin
-      .chat-main__message-list__margin__top-content
-        .chat-main__message-list__margin__top-content__users-name
-          masa
-        .chat-main__message-list__margin__top-content__post-date
-          2019/11/20(web) 17:43:01
-      .chat-main__message-list__margin__second-content
-        おはよう
-
-    .chat-main__message-list__margin
-      .chat-main__message-list__margin__top-content
-        .chat-main__message-list__margin__top-content__users-name
-          masa
-        .chat-main__message-list__margin__top-content__post-date
-          2019/11/20(web) 17:43:01
-      .chat-main__message-list__margin__second-content
-        おはよう
+    = render @messages
 
   .chat-main__message-form
-    %form{class: "form-box"}
+    = form_with model: [@group, @message], class: "form-box", local: true do |f|
       .chat-main__message-form__input-box
-        %input{type: "text", placeholder: "type a message", class: "input-message"}
-        %label{class: "image-box"}
-          = icon('fas', 'image')
-          %input{type: "file", class: "input-file"}
-      %input{type: "submit", value: "SEND", class: "send"}
+        = f.text_field :content, class: 'input-message',placeholder: 'type a message'
+        = f.label :image, class: 'image-box' do
+          = icon('fas', 'image', class: 'Form__icon')
+          = f.file_field :image, class: 'input-file'
+      = f.submit 'Send', class: 'send'
