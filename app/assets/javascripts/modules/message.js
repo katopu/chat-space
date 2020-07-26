@@ -2,7 +2,7 @@ $(function(){
   function buildHTML(message){
     if ( message.image ) {
       let html =
-        `<div class="chat-main__message-list__margin">
+        `<div class="chat-main__message-list__margin" data-message-id=${message.id}>
           <div class="chat-main__message-list__margin__top-content">
             <div class="chat-main__message-list__margin__top-content__users-name">
               ${message.user_name}
@@ -22,20 +22,21 @@ $(function(){
 
     } else {
       let html =
-
-        `<div class="chat-main__message-list__margin">
-          <div class="chat-main__message-list__margin__top-content">
-            <div class="chat-main__message-list__margin__top-content__users-name">
-              ${message.user_name}
+        `<div class="chat-main__message-list__margin" data-message-id=${message.id}></div>
+           <div class="chat-main__message-list__margin">
+            <div class="chat-main__message-list__margin__top-content">
+              <div class="chat-main__message-list__margin__top-content__users-name">
+                ${message.user_name}
+              </div>
+              <div class="chat-main__message-list__margin__top-content__post-date">
+                ${message.created_at}
+              </div>
             </div>
-            <div class="chat-main__message-list__margin__top-content__post-date">
-              ${message.created_at}
+            <div class="chat-main__message-list__margin__second-content">
+              <p class="Message__content">
+                ${message.content}
+              </p>
             </div>
-          </div>
-          <div class="chat-main__message-list__margin__second-content">
-            <p class="Message__content">
-              ${message.content}
-            </p>
           </div>
         </div>`
       return html;
@@ -60,10 +61,10 @@ $(function(){
       $('form')[0].reset();
       $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
       $('.send').attr('disabled', false)
-      console.log
     })
     .fail(function() {
-        alert("メッセージ送信に失敗しました")
+      alert("メッセージ送信に失敗しました")
+      $('.send').attr('disabled', false)
     });
   });
 });
