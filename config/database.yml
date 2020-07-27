@@ -44,12 +44,12 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
+#   production:C
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
   <<: *default
-  # database: chat_space_production
+  database: chat_space_production
   # username: chat_space 本番環境へ移行のためコメントアウト
   # password: <%= ENV['CHAT_SPACE_DATABASE_PASSWORD'] %>本番環境へ移行のためコメントアウト
   username: root
