@@ -67,12 +67,12 @@ $(function(){
         });
         $('.chat-main__message-list').append(insertHTML);//HTMLの情報を入れて返ってくる、そのデータを一番したへ追加
         //メッセージが入ったHTMLに、入れ物ごと追加
-        $('.chat-main__message-list').animate({ scrolltop: $('。chat-main__message-list')[0].scrolHeight});//cssは？
+        $('.chat-main__message-list').animate({ scrolltop: $('.chat-main__message-list')[0].scrolHeight});//cssは？
       }
     })
     .fail(function() {
       alert('error');
     });
-    setInterval(reloadMessages, 7000);//7秒で？リロード？
   };
+  setInterval(reloadMessages, 7000);//7秒で？リロード？
 });
