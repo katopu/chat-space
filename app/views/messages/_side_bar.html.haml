@@ -4,7 +4,7 @@
       .Side-bar__user-name__content__left-content
         = current_user.name
       .Side-bar__user-name__content__right-content
-        = link_to new_group_path class: "right-content__edit-icon--edit" do
+        = link_to new_group_path, class: "right-content__edit-icon--edit" do
           = icon('far', 'edit')
         = link_to edit_user_path(current_user), class: "right-content__cog-icon--cog" do
           = icon('fas', 'cog')
