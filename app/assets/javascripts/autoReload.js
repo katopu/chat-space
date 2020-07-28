@@ -22,21 +22,19 @@ $(function(){
 
     } else {
       let html =
-        `<div class="chat-main__message-list__margin" data-message-id=${message.id}></div>
-           <div class="chat-main__message-list__margin">
-            <div class="chat-main__message-list__margin__top-content">
-              <div class="chat-main__message-list__margin__top-content__users-name">
-                ${message.user_name}
-              </div>
-              <div class="chat-main__message-list__margin__top-content__post-date">
-                ${message.created_at}
-              </div>
+        `<div class="chat-main__message-list__margin" data-message-id=${message.id}>
+          <div class="chat-main__message-list__margin__top-content">
+            <div class="chat-main__message-list__margin__top-content__users-name">
+              ${message.user_name}
             </div>
-            <div class="chat-main__message-list__margin__second-content">
-              <p class="Message__content">
-                ${message.content}
-              </p>
+            <div class="chat-main__message-list__margin__top-content__post-date">
+              ${message.created_at}
             </div>
+          </div>
+          <div class="chat-main__message-list__margin__second-content">
+            <p class="Message__content">
+              ${message.content}
+            </p>
           </div>
         </div>`
       return html;
@@ -47,6 +45,7 @@ $(function(){
   let reloadMessages = function() {
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得 ブラウザーの一番下に表示されているメッセージのIDを取得する。
     let last_message_id = $('.chat-main__message-list__margin:last').data("message-id") || 0;//chat-main__message-list__margin:last'の親要素の一番最後にmessage-idを
+    console.log(last_message_id)
     $.ajax({
       //ルーティングで設定した通り/groups/id番号/api/messagesとなるよう文字列を書く
       url:  "api/messages",
@@ -67,7 +66,7 @@ $(function(){
         });
         $('.chat-main__message-list').append(insertHTML);//HTMLの情報を入れて返ってくる、そのデータを一番したへ追加
         //メッセージが入ったHTMLに、入れ物ごと追加
-        $('.chat-main__message-list').animate({ scrolltop: $('.chat-main__message-list')[0].scrolHeight});//cssは？
+        $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});//cssは？
       }
     })
     .fail(function() {
