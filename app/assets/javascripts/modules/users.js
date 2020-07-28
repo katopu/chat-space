@@ -52,14 +52,13 @@ $(function() {
     });
   });
   $("#UserSearchResult").on("click", ".ChatMember__add", function() {
-    // const userName = $(this).attr("data-user-name");
-    const userName = $(this).data('user-name');//data,カスタムデータ属性を取得するメソッド
+    const userName = $(this).attr("data-user-name");
     const userId = $(this).attr("data-user-id");
     $(this).parent().remove();
     addMember(userName, userId);
   });
   
-  $(".ChatMembers").on("click", "chatMember__remove", function() {
+  $(".ChatMembers").on("click", ".ChatMember__remove", function() {
     $(this).parent().remove();
   });
 });
