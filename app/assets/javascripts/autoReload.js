@@ -45,7 +45,6 @@ $(function(){
   let reloadMessages = function() {
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得 ブラウザーの一番下に表示されているメッセージのIDを取得する。
     let last_message_id = $('.chat-main__message-list__margin:last').data("message-id") || 0;//chat-main__message-list__margin:last'の親要素の一番最後にmessage-idを
-    console.log(last_message_id)
     $.ajax({
       //ルーティングで設定した通り/groups/id番号/api/messagesとなるよう文字列を書く
       url:  "api/messages",
